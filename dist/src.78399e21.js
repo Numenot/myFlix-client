@@ -32824,6 +32824,10 @@ function LoginView(props) {
     className: "register-button"
   }, "Register"));
 }
+
+LoginView.propTypes = {
+  onLoggedIn: _propTypes.default.func.isRequired
+};
 },{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js"}],"components/movie-card/movie-card.jsx":[function(require,module,exports) {
 "use strict";
 
