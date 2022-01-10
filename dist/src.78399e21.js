@@ -32750,6 +32750,10 @@ function RegistrationView(props) {
     onClick: handleSubmit
   }, "Submit"));
 }
+
+RegistrationView.propTypes = {
+  onRegistration: _propTypes.default.func.isRequired
+};
 },{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js"}],"components/login-view/login-view.jsx":[function(require,module,exports) {
 "use strict";
 
