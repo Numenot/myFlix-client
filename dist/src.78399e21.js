@@ -32750,15 +32750,6 @@ function RegistrationView(props) {
     onClick: handleSubmit
   }, "Submit"));
 }
-
-RegistrationView.propTypes = {
-  register: _propTypes.default.shape({
-    Username: _propTypes.default.string.isRequired,
-    Password: _propTypes.default.string.isRequired,
-    Email: _propTypes.default.string.isRequired,
-    Birthday: _propTypes.default.string.isRequired
-  })
-};
 },{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js"}],"components/login-view/login-view.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -32833,14 +32824,6 @@ function LoginView(props) {
     className: "register-button"
   }, "Register"));
 }
-
-LoginView.propTypes = {
-  user: _propTypes.default.shape({
-    username: _propTypes.default.string.isRequired,
-    password: _propTypes.default.string.isRequired
-  }),
-  onLoggedIn: _propTypes.default.func.isRequired
-};
 },{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","axios":"../node_modules/axios/index.js"}],"components/movie-card/movie-card.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -32989,6 +32972,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-poster"
       }, /*#__PURE__*/_react.default.createElement("img", {
+        crossOrigin: "anonymous",
         src: movie.ImagePath
       })), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-title"
@@ -33343,7 +33327,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53123" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60757" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
