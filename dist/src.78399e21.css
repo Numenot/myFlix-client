@@ -1,5 +1,91 @@
-.my-flix {
-  color: steelblue;
+.navbar {
+  background-color: #546e7a;
+}
+
+.btn-primary {
+  background-color: #ff9800;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ffc947;
+  border-color: #ff9800;
+  color: #000000;
+}
+
+.container-login-form {
+  text-align: center;
+  margin-top: 10rem;
+  border: 2px solid #ff9800;
+  background-color: #ffcc80;
+  color: #000000;
+}
+.btn {
+  background-color: #c66900;
+  color: #ffffff;
+  border-color: #c66900;
+}
+
+.btn-link:hover {
+  background-color: #ff9800;
+  color: #000000;
+  text-decoration: none;
+  border-color: #c66900;
+}
+
+.card {
+  background-color: #ffcc80;
+  max-width: 250px;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+button {
+  background-color: #c66900;
+  color: #ffffff;
+  border-color: #c66900;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff9800;
+  color: #000000;
+  text-decoration: none;
+  border-color: #c66900;
+}
+
+.movie-poster > img {
+  max-width: 20rem;
+  border: 2px solid black;
+  border-radius: 5%;
+}
+
+.movie-details {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.container-movie-view {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.movie-details .label {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.navbar {
+  background-color: #546e7a;
+  margin-bottom: 1.5rem;
+}
+body {
+  background-color: #eeeeee;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */
