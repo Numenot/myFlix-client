@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Container from 'react-bootstrap/Container';
+import { Container, Row, Button, Col, Image } from 'react-bootstrap';
 
 import './movie-view.scss';
 
@@ -11,30 +11,31 @@ export class MovieView extends React.Component {
 
     return (
       <Container className="container-movie-view">
-        <div className="movie-view">
-          <div className="movie-poster">
-            <img crossOrigin="anonymous" src={movie.ImagePath} />
-          </div>
-          <div className="movie-details">
-            <div className="movie-title">
-              <span className="label">Title:</span>
-              <span className="value"> {movie.Title}</span>
-            </div>
-            <div className="movie-description">
-              <span className="label">Description:</span>
-              <span className="value"> {movie.Description}</span>
-            </div>
-            <div className="movie-genre">
-              <span className="label">Genre:</span>
-              <span className="value"> {movie.Genre.Name}</span>
-            </div>
-            <div className="movie-director">
-              <span className="label">Director:</span>
-              <span className="value"> {movie.Director.Name}</span>
-            </div>
-          </div>
-          <button onClick={() => { onBackClick(null); }}> Back </button>
-        </div>
+        <Row className="movie-poster">
+          <Col>
+            <Image className="poster" crossOrigin="anonymous" src={movie.ImagePath} />
+          </Col>
+        </Row>
+        <Row>
+          <Col className="movie-title">{movie.Title}</Col>
+        </Row>
+        <Row>
+          <Col className="movie-genre" md={{ span: 3, offset: 3 }}>
+            <span className="label">Genre:</span>
+            <span className="value"> {movie.Genre.Name}</span>
+          </Col>
+          <Col className="movie-director" md={3}>
+            <span className="label">Director:</span>
+            <span className="value"> {movie.Director.Name}</span>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="movie-description" md={{ span: 6, offset: 3 }}>
+            <span className="label">Description:</span>
+            <span className="value"> {movie.Description}</span>
+          </Col>
+        </Row>
+        <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
       </Container>
     );
   }
