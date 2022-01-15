@@ -1,0 +1,53 @@
+$primaryColor: #546e7a;
+$primaryLightColor: #819ca9;
+$primaryDarkColor: #29434e;
+$secondaryColor: #ff9800;
+$secondaryLightColor: #ffc947;
+$secondaryDarkColor: #c66900;
+$primaryTextColor: #ffffff;
+$secondaryTextColor: #000000;
+
+.btn-primary {
+  background-color: $secondaryDarkColor;
+  color: $primaryTextColor;
+  border-color: $secondaryDarkColor;
+}
+
+.btn-primary:hover {
+  background-color: $secondaryColor;
+  color: $secondaryTextColor;
+  text-decoration: none;
+  border-color: $secondaryDarkColor;
+}
+
+.poster {
+  max-width: 20rem;
+  border-radius: 5%;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.container-movie-view {
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid $secondaryColor;
+  border-radius: 5%;
+  background-color: #ffcc80;
+ }
+
+.movie-title {
+  font-size: large;
+  font-weight: bold;
+}
+
+ .row {
+   padding: .5rem;
+ }
+
+ @media (max-width: 480px) {
+  .poster {
+    max-width: 18rem;
+  }
+}

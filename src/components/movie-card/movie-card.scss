@@ -1,0 +1,47 @@
+$primaryColor: #546e7a;
+$primaryLightColor: #819ca9;
+$primaryDarkColor: #29434e;
+$secondaryColor: #ff9800;
+$secondaryLightColor: #ffc947;
+$secondaryDarkColor: #c66900;
+$primaryTextColor: #ffffff;
+$secondaryTextColor: #000000;
+
+.btn {
+  background-color: $secondaryDarkColor;
+  color: $primaryTextColor;
+  border-color: $secondaryDarkColor;
+}
+
+.btn-link:hover {
+  background-color: $secondaryColor;
+  color: $secondaryTextColor;
+  text-decoration: none;
+  border-color: $secondaryDarkColor;
+}
+
+.card {
+  background-color: #ffcc80;
+  max-width: 250px;
+  border: 2px solid rgba(0,0,0,.125);
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+
+.card-img-top {
+  height: 22rem;
+}
+
+.card-text {
+ overflow: hidden;
+ height: 8rem;
+}
+
+.card-body {
+  height: 17rem;
+}
+
+.card-title {
+  font-size: large;
+  text-align: center;
+}

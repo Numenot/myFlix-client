@@ -1,0 +1,18 @@
+.btn-primary {
+  background-color: $secondaryColor;
+  border-color: $secondaryDarkColor;
+}
+
+.btn-primary:hover {
+  background-color: $secondaryLightColor;
+  border-color: $secondaryColor;
+  color: $secondaryTextColor
+}
+
+.container-registration-form {
+  text-align: center;
+  margin-top: 10rem;
+  border: 2px solid $secondaryColor;
+  background-color: #ffcc80;
+  color: $secondaryTextColor;
+}

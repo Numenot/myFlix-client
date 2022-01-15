@@ -1,5 +1,113 @@
-.my-flix {
-  color: steelblue;
+.navbar {
+  background-color: #546e7a;
+}
+
+.btn-primary {
+  background-color: #ff9800;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ffc947;
+  border-color: #ff9800;
+  color: #000000;
+}
+
+.container-login-form {
+  text-align: center;
+  margin-top: 10rem;
+  border: 2px solid #ff9800;
+  background-color: #ffcc80;
+  color: #000000;
+}
+.btn {
+  background-color: #c66900;
+  color: #ffffff;
+  border-color: #c66900;
+}
+
+.btn-link:hover {
+  background-color: #ff9800;
+  color: #000000;
+  text-decoration: none;
+  border-color: #c66900;
+}
+
+.card {
+  background-color: #ffcc80;
+  max-width: 250px;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+
+.card-img-top {
+  height: 22rem;
+}
+
+.card-text {
+  overflow: hidden;
+  height: 8rem;
+}
+
+.card-body {
+  height: 17rem;
+}
+
+.card-title {
+  font-size: large;
+  text-align: center;
+}
+.btn-primary {
+  background-color: #c66900;
+  color: #ffffff;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ff9800;
+  color: #000000;
+  text-decoration: none;
+  border-color: #c66900;
+}
+
+.poster {
+  max-width: 20rem;
+  border-radius: 5%;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.container-movie-view {
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid #ff9800;
+  border-radius: 5%;
+  background-color: #ffcc80;
+}
+
+.movie-title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.row {
+  padding: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .poster {
+    max-width: 18rem;
+  }
+}
+.navbar {
+  background-color: #546e7a;
+  margin-bottom: 1.5rem;
+}
+body {
+  background-color: #eeeeee;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */
