@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Button, Col, Image } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 import './movie-view.scss';
 
@@ -23,10 +24,16 @@ export class MovieView extends React.Component {
           <Col className="movie-genre" md={{ span: 3, offset: 3 }}>
             <span className="label">Genre:</span>
             <span className="value"> {movie.Genre.Name}</span>
+            <Link to={`/genres/${movie.Genre.Name}`}>
+              <Button variant="link">(More of this Genre)</Button>
+            </Link>
           </Col>
           <Col className="movie-director" md={3}>
             <span className="label">Director:</span>
             <span className="value"> {movie.Director.Name}</span>
+            <Link to={`/directors/${movie.Director.Name}`}>
+              <Button variant="link">(More from this director)</Button>
+            </Link>
           </Col>
         </Row>
         <Row>
