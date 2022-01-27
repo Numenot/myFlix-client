@@ -1,25 +1,27 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
+import { Button, Row, Col } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
-export function DirectorView({ movie, onBackClick }) {
+export function DirectorView({ director, onBackClick }) {
   return (
-    <div className='director-view'>
-      <h1> {movie.Director.Name}</h1>
-      {movie.Director.Bio}
-      Birth Year: {movie.Director.Birth}
-      <Button variant="primary" onClick={() => onBackClick()}>Back</Button>
+    <div>
+      <Row>
+        <Col>
+          <div className="director-name">
+            <span className="label">Name: </span>
+            <span className="value">{director.Name}</span>
+          </div>
+          <br />
+          <div className="director-bio">
+            <span className="label">Bio: </span>
+            <span className="value">{director.Bio}</span>
+          </div>
+          <br />
+          <Link to={`/`}>
+            <Button variant="primary" onClick={() => { onBackClick(null) }}>Go back to movie details</Button>
+          </Link>
+        </Col>
+      </Row>
     </div>
-  )
-}
-
-DirectorView.propTypes = {
-  movie: PropTypes.shape({
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string,
-    }).isRequired
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired
+  );
 }

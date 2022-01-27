@@ -1,23 +1,27 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
+import { Button, Row, Col } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
-export function GenreView({ movie, onBackClick }) {
+export function GenreView({ genre, onBackClick }) {
   return (
-    <div className='genre-view'>
-      <h1> {movie.Genre.Name}</h1>
-      {movie.Genre.Description}
-      <Button variant="primary" onClick={() => onBackClick()}>Back</Button>
+    <div>
+      <Row>
+        <Col>
+          <div className="genre-name">
+            <span className="label">Genre: </span>
+            <span className="value">{genre.Name}</span>
+          </div>
+          <br />
+          <div className="genre-description">
+            <span className="label">Description: </span>
+            <span className="value">{genre.Description}</span>
+          </div>
+          <br />
+          <Link to={`/`}>
+            <Button variant="primary" onClick={() => { onBackClick(null) }}>Go back to movie details</Button>
+          </Link>
+        </Col>
+      </Row>
     </div>
-  )
-}
-
-GenreView.propTypes = {
-  movie: PropTypes.shape({
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired,
-    }).isRequired
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired
+  );
 }

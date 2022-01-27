@@ -99,7 +99,37 @@
 
 @media (max-width: 480px) {
   .poster {
-    max-width: 18rem;
+    max-width: 16rem;
+  }
+}
+.fav-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav-poster {
+  height: 22rem;
+}
+
+.btn.btn-danger.btn-md {
+  background-color: #c66900;
+  opacity: 0.7;
+}
+
+.btn.btn-danger.btn-md:hover {
+  opacity: 1;
+}
+
+.delete-button {
+  background-color: #29434e;
+}
+
+@media (max-width: 769px) {
+  .user-profile_update-form, .user-profile {
+    padding: 2rem;
+    border: 2px solid #c66900;
+    border-radius: 5%;
   }
 }
 .navbar {

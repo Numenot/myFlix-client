@@ -26,7 +26,7 @@ export function LoginView(props) {
       setPasswordErr('Password Required');
       isReq = false;
     } else if (password.length < 6) {
-      setPassword('Password must be at least 6 characters long');
+      setPasswordErr('Password must be at least 6 characters long');
       isReq = false;
     }
 
@@ -72,5 +72,9 @@ export function LoginView(props) {
 }
 
 LoginView.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }),
   onLoggedIn: PropTypes.func.isRequired
-}
+};
