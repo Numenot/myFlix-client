@@ -234,7 +234,7 @@ export class ProfileView extends React.Component {
                   ) {
                     return (
                       <Card className="favorite-movie card-content" key={movie._id} >
-                        <Card.Img className="fav-poster" src={movie.ImagePath} />
+                        <Card.Img crossOrigin="anonymous" className="fav-poster" src={movie.ImagePath} />
                         <Card.ImgOverlay className="fav-overlay">
                           <Button size="md" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)} >Remove</Button>
                         </Card.ImgOverlay>

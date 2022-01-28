@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Button, Col, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Container, Row, Button, Col, Image } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -8,68 +8,121 @@ import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.addFavMovie = this.addFavMovie.bind(this);
+    this.onRemoveFavorite = this.onRemoveFavorite.bind(this);
+    this.state = {
+      FavoriteMovies: [],
+      userDetails: []
+    }
+  }
+
+  //Get user details to check for user's favorite movies
+  getUserDetails() {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
+    axios.get(`https://myflixmovieapp-myflix.herokuapp.com/users/${username}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    }).then(response => {
+      this.setState({
+        userDetails: response.data,
+        FavoriteMovies: response.data.FavoriteMovies
+      });
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    this.getUserDetails(accessToken);
+  }
+
+  //Add movie to favorite movie list
   addFavMovie() {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-
     axios.post(`https://myflixmovieapp-myflix.herokuapp.com/users/${username}/movies/${this.props.movie._id}`, {}, {
       headers: { Authorization: `Bearer ${token}` },
       method: 'POST'
     })
       .then(response => {
         console.log(response)
+        window.open(`/movies/${this.props.movie._id}`, '_self');
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
+  //Remove favorite movie from favorite list
+  onRemoveFavorite() {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
+    axios.delete(`https://myflixmovieapp-myflix.herokuapp.com/users/${username}/movies/${this.props.movie._id}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+      .then(response => {
+        console.log(response);
+        window.open(`/movies/${this.props.movie._id}`, '_self');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { movie, onBackClick } = this.props;
+    //Get full array of user's favorite movies
+    let FavArray = this.state.FavoriteMovies;
+    //Define the isFavoriteMovie variable which will determine which button appears on view (add to favorites or remove from favorites)
+    let isFavoriteMovie = false
+    //Check the favorite movies array to see if it includes the current movie and change isFavoriteMovie variable accordingly
+    if (FavArray.includes(this.props.movie._id)) {
+      isFavoriteMovie = true;
+    } else {
+      isFavoriteMovie = false;
+    };
 
     return (
       <Container className="container-movie-view">
-        <Row className="movie-poster">
+        <Row className="mb-2">
           <Col>
-            <Image className="poster" crossOrigin="anonymous" src={movie.ImagePath} />
+            <Image className="poster mb-2" crossOrigin="anonymous" src={movie.ImagePath} />
           </Col>
-        </Row>
-        <Row>
-          <Col className="movie-title">{movie.Title}</Col>
-        </Row>
-        <Row>
-          <Col className="movie-genre mb-1" md={{ span: 3, offset: 3 }}>
+          <Col className="my-auto">
+            <span className="movie-title"> {movie.Title} </span>
+            <br />
+            <br />
             <span className="label">Genre: </span>
             <Link to={`/genres/${movie.Genre.Name}`}>
               <Button size="md" variant="link" className="value"> {movie.Genre.Name} </Button>
             </Link>
-          </Col>
-          <Col className="movie-director" md={3}>
+            <br />
+            <br />
             <span className="label">Director: </span>
             <Link to={`/directors/${movie.Director.Name}`}>
               <Button size="md" variant="link" className="value"> {movie.Director.Name} </Button>
             </Link>
+            <br />
+            <br />
+            <div className="movie-description">
+              <span className="label">Description:</span>
+              <span className="value"> {movie.Description}</span>
+            </div>
+            <br />
+            {/* The button displayed depends on the isFavoriteMovie variable*/}
+            {isFavoriteMovie ? (
+              <Button variant="primary" onClick={this.onRemoveFavorite}> Remove from Favorites </Button>
+            ) : (
+              <Button variant="primary" onClick={this.addFavMovie}> Add to Favorites </Button>
+            )}
           </Col>
         </Row>
         <Row>
-          <Col className="movie-description" md={{ span: 6, offset: 3 }}>
-            <span className="label">Description:</span>
-            <span className="value"> {movie.Description}</span>
-          </Col>
-        </Row>
-        <Row>
-          <Col className="mb-1" md={{ span: 2, offset: 4 }}>
+          <Col>
             <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
-          </Col>
-          {/* Upon click on the add to favorites button, the movie will be added to favorite list and a tooltip will appear under the button to confirm to the user it was added. */}
-          <Col md={2}>
-            <OverlayTrigger key="bottom" placement="bottom" trigger="click" overlay={
-              <Tooltip id="tooltip-right">
-                Added to your favorites!
-              </Tooltip>
-            }>
-              <Button variant="secondary" value={movie._id} onClick={(e) => this.addFavMovie(e, movie)}>Add to Favorites</Button>
-            </OverlayTrigger>
           </Col>
         </Row>
       </Container >

@@ -20,6 +20,11 @@
   background-color: #ffcc80;
   color: #000000;
 }
+
+.error-message-login {
+  color: red;
+  font-weight: bold;
+}
 .btn {
   background-color: #c66900;
   color: #ffffff;

@@ -11,6 +11,7 @@ export function LoginView(props) {
   // Declare hook for each input
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
+  const [Err, setErr] = useState('');
 
   // validate user inputs
   const validate = () => {
@@ -47,7 +48,8 @@ export function LoginView(props) {
           props.onLoggedIn(data);
         })
         .catch(e => {
-          console.log('no such user')
+          console.log('Incorrect username and/or password')
+          setErr('Incorrect username and/or password')
         });
     }
   };
@@ -58,14 +60,15 @@ export function LoginView(props) {
         <Form.Group controlId="formUsername" className="mb-3 mt-3">
           <Form.Label>Username:</Form.Label>
           <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} />
-          {usernameErr && <p>{usernameErr}</p>}
+          <span className="error-message-login">{usernameErr && <p>{usernameErr}</p>}</span>
         </Form.Group>
         <Form.Group controlId="formPassword" className="mb-3">
           <Form.Label>Password:</Form.Label>
           <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-          {passwordErr && <p>{passwordErr}</p>}
+          <span className="error-message-login">{passwordErr && <p>{passwordErr}</p>}</span>
         </Form.Group>
         <Button className="mb-3" variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+        <span className="error-message-login"> {Err && <p>{Err}</p>}</span>
       </Form>
     </Container>
   );

@@ -54174,7 +54174,12 @@ function LoginView(props) {
   var _useState7 = (0, _react.useState)(''),
       _useState8 = _slicedToArray(_useState7, 2),
       passwordErr = _useState8[0],
-      setPasswordErr = _useState8[1]; // validate user inputs
+      setPasswordErr = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      Err = _useState10[0],
+      setErr = _useState10[1]; // validate user inputs
 
 
   var validate = function validate() {
@@ -54212,7 +54217,8 @@ function LoginView(props) {
         var data = response.data;
         props.onLoggedIn(data);
       }).catch(function (e) {
-        console.log('no such user');
+        console.log('Incorrect username and/or password');
+        setErr('Incorrect username and/or password');
       });
     }
   };
@@ -54228,7 +54234,9 @@ function LoginView(props) {
     onChange: function onChange(e) {
       return setUsername(e.target.value);
     }
-  }), usernameErr && /*#__PURE__*/_react.default.createElement("p", null, usernameErr)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "error-message-login"
+  }, usernameErr && /*#__PURE__*/_react.default.createElement("p", null, usernameErr))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "formPassword",
     className: "mb-3"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Label, null, "Password:"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Form.Control, {
@@ -54237,12 +54245,16 @@ function LoginView(props) {
     onChange: function onChange(e) {
       return setPassword(e.target.value);
     }
-  }), passwordErr && /*#__PURE__*/_react.default.createElement("p", null, passwordErr)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "error-message-login"
+  }, passwordErr && /*#__PURE__*/_react.default.createElement("p", null, passwordErr))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     className: "mb-3",
     variant: "primary",
     type: "submit",
     onClick: handleSubmit
-  }, "Submit")));
+  }, "Submit"), /*#__PURE__*/_react.default.createElement("span", {
+    className: "error-message-login"
+  }, " ", Err && /*#__PURE__*/_react.default.createElement("p", null, Err))));
 }
 
 LoginView.propTypes = {
@@ -54412,15 +54424,55 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(MovieView);
 
-  function MovieView() {
+  function MovieView(props) {
+    var _this;
+
     _classCallCheck(this, MovieView);
 
-    return _super.apply(this, arguments);
-  }
+    _this = _super.call(this, props);
+    _this.addFavMovie = _this.addFavMovie.bind(_assertThisInitialized(_this));
+    _this.onRemoveFavorite = _this.onRemoveFavorite.bind(_assertThisInitialized(_this));
+    _this.state = {
+      FavoriteMovies: [],
+      userDetails: []
+    };
+    return _this;
+  } //Get user details to check for user's favorite movies
+
 
   _createClass(MovieView, [{
+    key: "getUserDetails",
+    value: function getUserDetails() {
+      var _this2 = this;
+
+      var token = localStorage.getItem('token');
+      var username = localStorage.getItem('user');
+
+      _axios.default.get("https://myflixmovieapp-myflix.herokuapp.com/users/".concat(username), {
+        headers: {
+          Authorization: "Bearer ".concat(token)
+        }
+      }).then(function (response) {
+        _this2.setState({
+          userDetails: response.data,
+          FavoriteMovies: response.data.FavoriteMovies
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var accessToken = localStorage.getItem('token');
+      this.getUserDetails(accessToken);
+    } //Add movie to favorite movie list
+
+  }, {
     key: "addFavMovie",
     value: function addFavMovie() {
+      var _this3 = this;
+
       var token = localStorage.getItem('token');
       var username = localStorage.getItem('user');
 
@@ -54431,6 +54483,27 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         method: 'POST'
       }).then(function (response) {
         console.log(response);
+        window.open("/movies/".concat(_this3.props.movie._id), '_self');
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: "onRemoveFavorite",
+    value: //Remove favorite movie from favorite list
+    function onRemoveFavorite() {
+      var _this4 = this;
+
+      var token = localStorage.getItem('token');
+      var username = localStorage.getItem('user');
+
+      _axios.default.delete("https://myflixmovieapp-myflix.herokuapp.com/users/".concat(username, "/movies/").concat(this.props.movie._id), {
+        headers: {
+          Authorization: "Bearer ".concat(token)
+        }
+      }).then(function (response) {
+        console.log(response);
+        window.open("/movies/".concat(_this4.props.movie._id), '_self');
       }).catch(function (error) {
         console.log(error);
       });
@@ -54438,28 +54511,34 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
-
       var _this$props = this.props,
           movie = _this$props.movie,
-          onBackClick = _this$props.onBackClick;
+          onBackClick = _this$props.onBackClick; //Get full array of user's favorite movies
+
+      var FavArray = this.state.FavoriteMovies; //Define the isFavoriteMovie variable which will determine which button appears on view (add to favorites or remove from favorites)
+
+      var isFavoriteMovie = false; //Check the favorite movies array to see if it includes the current movie and change isFavoriteMovie variable accordingly
+
+      if (FavArray.includes(this.props.movie._id)) {
+        isFavoriteMovie = true;
+      } else {
+        isFavoriteMovie = false;
+      }
+
+      ;
       return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Container, {
         className: "container-movie-view"
       }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
-        className: "movie-poster"
+        className: "mb-2"
       }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
-        className: "poster",
+        className: "poster mb-2",
         crossOrigin: "anonymous",
         src: movie.ImagePath
-      }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-        className: "movie-title"
-      }, movie.Title)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-        className: "movie-genre mb-1",
-        md: {
-          span: 3,
-          offset: 3
-        }
+      })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+        className: "my-auto"
       }, /*#__PURE__*/_react.default.createElement("span", {
+        className: "movie-title"
+      }, " ", movie.Title, " "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Genre: "), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
         to: "/genres/".concat(movie.Genre.Name)
@@ -54467,10 +54546,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         size: "md",
         variant: "link",
         className: "value"
-      }, " ", movie.Genre.Name, " "))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-        className: "movie-director",
-        md: 3
-      }, /*#__PURE__*/_react.default.createElement("span", {
+      }, " ", movie.Genre.Name, " ")), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Director: "), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
         to: "/directors/".concat(movie.Director.Name)
@@ -54478,43 +54554,24 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         size: "md",
         variant: "link",
         className: "value"
-      }, " ", movie.Director.Name, " ")))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-        className: "movie-description",
-        md: {
-          span: 6,
-          offset: 3
-        }
+      }, " ", movie.Director.Name, " ")), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
+        className: "movie-description"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Description:"), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, " ", movie.Description))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-        className: "mb-1",
-        md: {
-          span: 2,
-          offset: 4
-        }
-      }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+      }, " ", movie.Description)), /*#__PURE__*/_react.default.createElement("br", null), isFavoriteMovie ? /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+        variant: "primary",
+        onClick: this.onRemoveFavorite
+      }, " Remove from Favorites ") : /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+        variant: "primary",
+        onClick: this.addFavMovie
+      }, " Add to Favorites "))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
         variant: "primary",
         onClick: function onClick() {
           onBackClick(null);
         }
-      }, "Back")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
-        md: 2
-      }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.OverlayTrigger, {
-        key: "bottom",
-        placement: "bottom",
-        trigger: "click",
-        overlay: /*#__PURE__*/_react.default.createElement(_reactBootstrap.Tooltip, {
-          id: "tooltip-right"
-        }, "Added to your favorites!")
-      }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
-        variant: "secondary",
-        value: movie._id,
-        onClick: function onClick(e) {
-          return _this.addFavMovie(e, movie);
-        }
-      }, "Add to Favorites")))));
+      }, "Back"))));
     }
   }]);
 
@@ -54947,6 +55004,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
             className: "favorite-movie card-content",
             key: movie._id
           }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Card.Img, {
+            crossOrigin: "anonymous",
             className: "fav-poster",
             src: movie.ImagePath
           }), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Card.ImgOverlay, {
@@ -55163,6 +55221,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
             movie: movies.find(function (m) {
               return m._id === match.params.movieId;
             }),
+            user: user,
             onBackClick: function onBackClick() {
               return history.goBack();
             }
@@ -55343,7 +55402,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57838" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62802" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

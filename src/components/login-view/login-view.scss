@@ -25,3 +25,8 @@ $secondaryTextColor: #000000;
   background-color: #ffcc80;
   color: $secondaryTextColor;
 }
+
+.error-message-login {
+  color: red;
+  font-weight: bold;
+}
