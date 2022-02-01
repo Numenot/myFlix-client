@@ -26,6 +26,11 @@ $secondaryTextColor: #000000;
   border: 2px solid rgba(0,0,0,.125);
   margin: auto;
   margin-bottom: 1.5rem;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05) perspective(1px);
+  }
 }
 
 .card-img-top {

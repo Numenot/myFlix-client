@@ -1,6 +1,5 @@
 .navbar {
   background-color: #546e7a;
-  margin-bottom: 1.5rem;
 }
 .btn {
   background-color: #c66900;
@@ -21,6 +20,10 @@
   border: 2px solid rgba(0, 0, 0, 0.125);
   margin: auto;
   margin-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.05) perspective(1px);
 }
 
 .card-img-top {
@@ -39,6 +42,24 @@
 .card-title {
   font-size: large;
   text-align: center;
+}
+.btn-primary {
+  background-color: #ff9800;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ffc947;
+  border-color: #ff9800;
+  color: #000000;
+}
+
+.container-registration-form {
+  text-align: center;
+  margin-top: 10rem;
+  border: 2px solid #ff9800;
+  background-color: #ffcc80;
+  color: #000000;
 }
 .btn-primary {
   background-color: #ff9800;
@@ -136,10 +157,6 @@
     border: 2px solid #c66900;
     border-radius: 5%;
   }
-}
-.navbar {
-  background-color: #546e7a;
-  margin-bottom: 1.5rem;
 }
 body {
   background-color: #eeeeee;
