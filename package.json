@@ -2,7 +2,7 @@
   "name": "myflix-client",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.html",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Numenot/myFlix-client.git"
