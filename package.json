@@ -2,9 +2,7 @@
   "name": "myflix-client",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "start": "parcel ./src/index.html"
-  },
+  "main": "src/index.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Numenot/myFlix-client.git"
@@ -17,6 +15,7 @@
   "homepage": "https://github.com/Numenot/myFlix-client#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "parcel": "^2.0.0-rc.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.0",
