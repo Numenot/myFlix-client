@@ -41826,14 +41826,18 @@ function RegistrationView(props) {
     };
     return(/*#__PURE__*/ _react["default"].createElement("div", {
         className: "main-view"
-    }, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Container, {
+    }, /*#__PURE__*/ _react["default"].createElement("h2", {
+        className: "login-title"
+    }, "Welcome to myFlix"), /*#__PURE__*/ _react["default"].createElement("h5", {
+        className: "login-subtitle"
+    }, "Your new favourite place to learn about latest movies!"), /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Container, {
         className: "container-registration-form"
     }, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Form, null, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Form.Group, {
         controlId: "formUsername",
         className: "mb-3 mt-3"
     }, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Form.Label, null, "Create Username:"), /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Form.Control, {
         type: "text",
-        placeholder: "Enter username",
+        placeholder: "Your username must be at least 5 characters long",
         onChange: function onChange(e) {
             return setUsername(e.target.value);
         }
@@ -41842,7 +41846,7 @@ function RegistrationView(props) {
         className: "mb-3"
     }, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Form.Label, null, "Create Password:"), /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Form.Control, {
         type: "password",
-        placeholder: "Enter password",
+        placeholder: "Your password must be at least 6 characters long",
         onChange: function onChange(e) {
             return setPassword(e.target.value);
         }
@@ -42030,7 +42034,11 @@ function LoginView(props) {
             setErr('Incorrect username and/or password');
         });
     };
-    return(/*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Container, {
+    return(/*#__PURE__*/ _react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/ _react["default"].createElement("h2", {
+        className: "login-title"
+    }, "Welcome to myFlix"), /*#__PURE__*/ _react["default"].createElement("h5", {
+        className: "login-subtitle"
+    }, "Your new favourite place to learn about latest movies!"), /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Container, {
         className: "container-login-form"
     }, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Form, null, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Form.Group, {
         controlId: "formUsername",
@@ -42061,7 +42069,11 @@ function LoginView(props) {
         onClick: handleSubmit
     }, "Submit"), /*#__PURE__*/ _react["default"].createElement("span", {
         className: "error-message-login"
-    }, " ", Err && /*#__PURE__*/ _react["default"].createElement("p", null, Err)))));
+    }, " ", Err && /*#__PURE__*/ _react["default"].createElement("p", null, Err)), /*#__PURE__*/ _react["default"].createElement("div", {
+        className: "mb-3"
+    }, "No account yet? ", /*#__PURE__*/ _react["default"].createElement("a", {
+        href: "/register"
+    }, "Create an account now!"))))));
 }
 _c = LoginView;
 LoginView.propTypes = {
@@ -42646,7 +42658,9 @@ var ProfileView = /*#__PURE__*/ function(_React$Component) {
                         id: "button-tooltip"
                     }, props), "Be careful, this is permanent!"));
                 };
-                return(/*#__PURE__*/ _react["default"].createElement("div", null, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Row, null, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Col, {
+                return(/*#__PURE__*/ _react["default"].createElement("div", {
+                    className: "mt-4"
+                }, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Row, null, /*#__PURE__*/ _react["default"].createElement(_reactBootstrap.Col, {
                     className: "user-profile mb-4",
                     md: {
                         offset: 2,

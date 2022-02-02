@@ -55,22 +55,29 @@ export function LoginView(props) {
   };
 
   return (
-    <Container className="container-login-form">
-      <Form>
-        <Form.Group controlId="formUsername" className="mb-3 mt-3">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} />
-          <span className="error-message-login">{usernameErr && <p>{usernameErr}</p>}</span>
-        </Form.Group>
-        <Form.Group controlId="formPassword" className="mb-3">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-          <span className="error-message-login">{passwordErr && <p>{passwordErr}</p>}</span>
-        </Form.Group>
-        <Button className="mb-3" variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
-        <span className="error-message-login"> {Err && <p>{Err}</p>}</span>
-      </Form>
-    </Container>
+    <>
+      <h2 className="login-title">Welcome to myFlix</h2>
+      <h5 className="login-subtitle">Your new favourite place to learn about latest movies!</h5>
+      <Container className="container-login-form">
+        <Form>
+          <Form.Group controlId="formUsername" className="mb-3 mt-3">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} />
+            <span className="error-message-login">{usernameErr && <p>{usernameErr}</p>}</span>
+          </Form.Group>
+          <Form.Group controlId="formPassword" className="mb-3">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+            <span className="error-message-login">{passwordErr && <p>{passwordErr}</p>}</span>
+          </Form.Group>
+          <Button className="mb-3" variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+          <span className="error-message-login"> {Err && <p>{Err}</p>}</span>
+          <div className="mb-3">
+            No account yet? <a href="/register">Create an account now!</a>
+          </div>
+        </Form>
+      </Container>
+    </>
   );
 }
 

@@ -158,7 +158,7 @@ export class ProfileView extends React.Component {
     );
 
     return (
-      <div>
+      <div className="mt-4">
         <Row>
 
           {/* Display user details */}

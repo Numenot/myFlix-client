@@ -70,16 +70,18 @@ export function RegistrationView(props) {
 
   return (
     <div className="main-view">
+      <h2 className="login-title">Welcome to myFlix</h2>
+      <h5 className="login-subtitle">Your new favourite place to learn about latest movies!</h5>
       <Container className="container-registration-form">
         <Form>
           <Form.Group controlId="formUsername" className="mb-3 mt-3">
             <Form.Label>Create Username:</Form.Label>
-            <Form.Control type="text" placeholder="Enter username" onChange={e => setUsername(e.target.value)} />
+            <Form.Control type="text" placeholder="Your username must be at least 5 characters long" onChange={e => setUsername(e.target.value)} />
             {usernameErr && <p>{usernameErr}</p>}
           </Form.Group>
           <Form.Group controlId="formPassword" className="mb-3">
             <Form.Label>Create Password:</Form.Label>
-            <Form.Control type="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
+            <Form.Control type="password" placeholder="Your password must be at least 6 characters long" onChange={e => setPassword(e.target.value)} />
             {passwordErr && <p>{passwordErr}</p>}
           </Form.Group>
           <Form.Group controlId="formEmail" className="mb-3">

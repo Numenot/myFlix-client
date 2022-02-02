@@ -20,8 +20,29 @@ $secondaryTextColor: #000000;
 
 .container-registration-form {
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 5rem;
   border: 2px solid $secondaryColor;
   background-color: #ffcc80;
   color: $secondaryTextColor;
+}
+
+.login-title {
+  text-align: center;
+  margin-top: 5rem;
+  color: $primaryColor;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: $primaryLightColor;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .login-title {
+    margin-top: 2rem;
+  }
+  .container-registration-form {
+    margin-top: 2rem;
+  }
 }

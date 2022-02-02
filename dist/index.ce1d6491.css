@@ -46,6 +46,7 @@ body {
 .card-title {
   font-size: large;
   text-align: center;
+  font-weight: bold;
 }
 
 .btn-primary {
@@ -61,10 +62,32 @@ body {
 
 .container-registration-form {
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 5rem;
   border: 2px solid #ff9800;
   background-color: #ffcc80;
   color: #000000;
+}
+
+.login-title {
+  text-align: center;
+  margin-top: 5rem;
+  color: #546e7a;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #819ca9;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .login-title {
+    margin-top: 2rem;
+  }
+
+  .container-registration-form {
+    margin-top: 2rem;
+  }
 }
 .btn-primary {
   background-color: #ff9800;
@@ -79,7 +102,7 @@ body {
 
 .container-login-form {
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 5rem;
   border: 2px solid #ff9800;
   background-color: #ffcc80;
   color: #000000;
@@ -88,6 +111,28 @@ body {
 .error-message-login {
   color: red;
   font-weight: bold;
+}
+
+.login-title {
+  text-align: center;
+  margin-top: 5rem;
+  color: #546e7a;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #819ca9;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .login-title {
+    margin-top: 2rem;
+  }
+
+  .container-login-form {
+    margin-top: 2rem;
+  }
 }
 .btn-primary {
   background-color: #c66900;
@@ -115,7 +160,7 @@ body {
   padding: 1.5rem;
   text-align: center;
   border: 2px solid #ff9800;
-  border-radius: 5%;
+  border-radius: 2%;
   background-color: #ffcc80;
 }
 
@@ -163,5 +208,11 @@ body {
     border-radius: 5%;
   }
 }
-
+@font-face {
+  font-family: Abel;
+  src: url("Abel-Regular.3b7a1cc7.ttf");
+}
+body {
+  font-family: "Abel", Arial, sans-serif;
+}
 /*# sourceMappingURL=index.ce1d6491.css.map */
