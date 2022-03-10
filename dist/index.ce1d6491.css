@@ -1,0 +1,218 @@
+body {
+  background-color: #eeeeee;
+}
+.navbar {
+  background-color: #546e7a;
+}
+
+.btn {
+  background-color: #c66900;
+  color: #ffffff;
+  border-color: #c66900;
+}
+
+.btn-link:hover {
+  background-color: #ff9800;
+  color: #000000;
+  text-decoration: none;
+  border-color: #c66900;
+}
+
+.card {
+  background-color: #ffcc80;
+  max-width: 250px;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  margin: auto;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.05) perspective(1px);
+}
+
+.card-img-top {
+  height: 22rem;
+}
+
+.card-text {
+  overflow: hidden;
+  height: 8rem;
+}
+
+.card-body {
+  height: 17rem;
+}
+
+.card-title {
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #ff9800;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ffc947;
+  border-color: #ff9800;
+  color: #000000;
+}
+
+.container-registration-form {
+  text-align: center;
+  margin-top: 5rem;
+  border: 2px solid #ff9800;
+  background-color: #ffcc80;
+  color: #000000;
+}
+
+.login-title {
+  text-align: center;
+  margin-top: 5rem;
+  color: #546e7a;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #819ca9;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .login-title {
+    margin-top: 2rem;
+  }
+
+  .container-registration-form {
+    margin-top: 2rem;
+  }
+}
+.btn-primary {
+  background-color: #ff9800;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ffc947;
+  border-color: #ff9800;
+  color: #000000;
+}
+
+.container-login-form {
+  text-align: center;
+  margin-top: 5rem;
+  border: 2px solid #ff9800;
+  background-color: #ffcc80;
+  color: #000000;
+}
+
+.error-message-login {
+  color: red;
+  font-weight: bold;
+}
+
+.login-title {
+  text-align: center;
+  margin-top: 5rem;
+  color: #546e7a;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #819ca9;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .login-title {
+    margin-top: 2rem;
+  }
+
+  .container-login-form {
+    margin-top: 2rem;
+  }
+}
+.btn-primary {
+  background-color: #c66900;
+  color: #ffffff;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ff9800;
+  color: #000000;
+  text-decoration: none;
+  border-color: #c66900;
+}
+
+.poster {
+  max-width: 20rem;
+  border-radius: 5%;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.container-movie-view {
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid #ff9800;
+  border-radius: 2%;
+  background-color: #ffcc80;
+}
+
+.movie-title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.row {
+  padding: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .poster {
+    max-width: 16rem;
+  }
+}
+.fav-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav-poster {
+  height: 22rem;
+}
+
+.btn.btn-danger.btn-md {
+  background-color: #c66900;
+  opacity: 0.7;
+}
+
+.btn.btn-danger.btn-md:hover {
+  opacity: 1;
+}
+
+.delete-button {
+  background-color: #29434e;
+}
+
+@media (max-width: 769px) {
+  .user-profile_update-form, .user-profile {
+    padding: 2rem;
+    border: 2px solid #c66900;
+    border-radius: 5%;
+  }
+}
+@font-face {
+  font-family: Abel;
+  src: url("Abel-Regular.3b7a1cc7.ttf");
+}
+body {
+  font-family: "Abel", Arial, sans-serif;
+}
+/*# sourceMappingURL=index.ce1d6491.css.map */

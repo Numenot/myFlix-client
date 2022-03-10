@@ -1,0 +1,39 @@
+$primaryColor: #546e7a;
+$primaryLightColor: #819ca9;
+$primaryDarkColor: #29434e;
+$secondaryColor: #ff9800;
+$secondaryLightColor: #ffc947;
+$secondaryDarkColor: #c66900;
+$primaryTextColor: #ffffff;
+$secondaryTextColor: #000000;
+
+.fav-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav-poster {
+  height: 22rem;
+}
+
+.btn.btn-danger.btn-md {
+  background-color: $secondaryDarkColor;
+  opacity: 0.7;
+}
+
+.btn.btn-danger.btn-md:hover {
+  opacity: 1.0;
+}
+
+.delete-button {
+  background-color: $primaryDarkColor;
+}
+
+@media (max-width: 769px) {
+.user-profile_update-form, .user-profile {
+  padding: 2rem;
+  border: 2px solid $secondaryDarkColor;
+  border-radius: 5%;
+}
+}

@@ -7,10 +7,6 @@ $secondaryDarkColor: #c66900;
 $primaryTextColor: #ffffff;
 $secondaryTextColor: #000000;
 
-.navbar {
-  background-color: $primaryColor;
-}
-
 .btn-primary {
   background-color: $secondaryColor;
   border-color: $secondaryDarkColor;
@@ -24,8 +20,34 @@ $secondaryTextColor: #000000;
 
 .container-login-form {
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 5rem;
   border: 2px solid $secondaryColor;
   background-color: #ffcc80;
   color: $secondaryTextColor;
+}
+
+.error-message-login {
+  color: red;
+  font-weight: bold;
+}
+
+.login-title {
+  text-align: center;
+  margin-top: 5rem;
+  color: $primaryColor;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: $primaryLightColor;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .login-title {
+    margin-top: 2rem;
+  }
+  .container-login-form {
+    margin-top: 2rem;
+  }
 }

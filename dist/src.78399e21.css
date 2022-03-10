@@ -1,25 +1,6 @@
 .navbar {
   background-color: #546e7a;
 }
-
-.btn-primary {
-  background-color: #ff9800;
-  border-color: #c66900;
-}
-
-.btn-primary:hover {
-  background-color: #ffc947;
-  border-color: #ff9800;
-  color: #000000;
-}
-
-.container-login-form {
-  text-align: center;
-  margin-top: 10rem;
-  border: 2px solid #ff9800;
-  background-color: #ffcc80;
-  color: #000000;
-}
 .btn {
   background-color: #c66900;
   color: #ffffff;
@@ -39,6 +20,10 @@
   border: 2px solid rgba(0, 0, 0, 0.125);
   margin: auto;
   margin-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.05) perspective(1px);
 }
 
 .card-img-top {
@@ -57,6 +42,47 @@
 .card-title {
   font-size: large;
   text-align: center;
+}
+.btn-primary {
+  background-color: #ff9800;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ffc947;
+  border-color: #ff9800;
+  color: #000000;
+}
+
+.container-registration-form {
+  text-align: center;
+  margin-top: 10rem;
+  border: 2px solid #ff9800;
+  background-color: #ffcc80;
+  color: #000000;
+}
+.btn-primary {
+  background-color: #ff9800;
+  border-color: #c66900;
+}
+
+.btn-primary:hover {
+  background-color: #ffc947;
+  border-color: #ff9800;
+  color: #000000;
+}
+
+.container-login-form {
+  text-align: center;
+  margin-top: 10rem;
+  border: 2px solid #ff9800;
+  background-color: #ffcc80;
+  color: #000000;
+}
+
+.error-message-login {
+  color: red;
+  font-weight: bold;
 }
 .btn-primary {
   background-color: #c66900;
@@ -99,12 +125,38 @@
 
 @media (max-width: 480px) {
   .poster {
-    max-width: 18rem;
+    max-width: 16rem;
   }
 }
-.navbar {
-  background-color: #546e7a;
-  margin-bottom: 1.5rem;
+.fav-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav-poster {
+  height: 22rem;
+}
+
+.btn.btn-danger.btn-md {
+  background-color: #c66900;
+  opacity: 0.7;
+}
+
+.btn.btn-danger.btn-md:hover {
+  opacity: 1;
+}
+
+.delete-button {
+  background-color: #29434e;
+}
+
+@media (max-width: 769px) {
+  .user-profile_update-form, .user-profile {
+    padding: 2rem;
+    border: 2px solid #c66900;
+    border-radius: 5%;
+  }
 }
 body {
   background-color: #eeeeee;
