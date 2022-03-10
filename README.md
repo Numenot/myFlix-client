@@ -43,6 +43,4 @@ can learn more about movies I’ve watched or am interested in.
 - Run npm start
 - Server should be running at http://localhost:1234
 
-![Screenshot](./img/myFlix.png)
-
 Live site: https://myflix-myflixapp.netlify.app/
