@@ -1,5 +1,6 @@
 # myFlix Client
-Client-side for an application called myFlix, built using React, based on an existing server-side code (REST API and database)
+- Client-side for an application called myFlix, built using React, based on an existing server-side code (REST API and database)
+- Live site: https://myflix-myflixapp.netlify.app/
 
 # User stories
 - As a user, I want to be able to access information on movies, directors, and genres so that I
@@ -43,4 +44,10 @@ can learn more about movies I’ve watched or am interested in.
 - Run npm start
 - Server should be running at http://localhost:1234
 
-Live site: https://myflix-myflixapp.netlify.app/
+# Screenshots
+## Desktop
+![Screenshot](./img/myFlix.png)
+
+## Mobile
+![Screenshot](./img/myFlix-mobile.png)
+
